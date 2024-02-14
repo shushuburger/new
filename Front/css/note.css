@@ -67,7 +67,7 @@ header{
     justify-content: flex-end;
 }
 
-.cancel-btn{
+.button-wrapper > button{
     border: 1px solid black;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -77,12 +77,8 @@ header{
     border-radius: 4px;
 }
 
+.cancel-btn{
+}
+
 .create-btn{
-    border: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: white;
-    border-radius: 4px;
 }
