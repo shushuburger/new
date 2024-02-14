@@ -17,3 +17,23 @@ header{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.memo-container{
+    margin-top: 100px;
+}
+
+.title{
+    font-size: 30px;
+}
+
+.description{
+    font-size: 20px;
+}
+
+.createdAt{
+    text-align: right;
+}
+
+.content{
+    margin-top: 50px;
+}
