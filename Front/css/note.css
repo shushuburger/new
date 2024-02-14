@@ -43,4 +43,20 @@ header{
     padding-top: 10px;
     padding-bottom: 10px;
     outline-style: none;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.user-input > span{
+    display: inline-block;
+    height: 30px;
+}
+
+.user-input > textarea{
+    resize: none;
+    height: 200px;
+}
+
+.user-input.user-input-content{
+    margin-top: 30px;
 }
