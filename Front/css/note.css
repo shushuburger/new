@@ -17,3 +17,30 @@ header{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.slogan{
+    background-color: #2725D2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.user-input-container{
+    margin-top: 40px;
+}
+
+.user-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-input > input{
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    outline-style: none;
+}
