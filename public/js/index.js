@@ -5,22 +5,20 @@ function getData() {
     }).then(function (result) {
         return result.json();
     }).then(function (data) {
-        console.log(data);
+        const memoWrapper = document.querySelector(".memo-container");
+
+        while(memoWrapper.firstChild) {
+            memoWrapper.removeChild(memoWrapper.firstChild);
+        }
+    
+        for(let i = 0; i< data.length; i++){
+            const memo = data[i];
+            const list = drawMemo(memo);
+            memoWrapper.appendChild(list);
+        }
     }).catch(function(error) {
         console.log(error);
     });
-
-    const memoWrapper = document.querySelector(".memo-container");
-
-    while(memoWrapper.firstChild) {
-        memoWrapper.removeChild(memoWrapper.firstChild);
-    }
-
-    for(let i = 0; i< saveData.length; i++){
-        const data = saveData[i];
-        const list = drawMemo(data);
-        memoWrapper.appendChild(list);
-    }
 }
 
 function drawMemo(memo) {
