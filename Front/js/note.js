@@ -1,4 +1,5 @@
 const createButton = document.querySelector(".create-btn");
+const modifyButton = document.querySelector(".modify-btn");
 
 createButton.addEventListener("click", function (event) {
     const title = document.querySelector(".title");
@@ -33,6 +34,18 @@ createButton.addEventListener("click", function (event) {
     }
 });
 
+function renderPage() {
+    const qs = getQueryString();
+
+    if(qs.mode === "create") {
+        createButton.style.display = "block";
+        modifyButton.style.display = "none";
+    } else if(qs.mode === "modify") {
+        createButton.style.display = "none";
+        modifyButton.style.display = "block";
+    }
+}
+
 function getData() {
     const saveData = JSON.parse(localStorage.getItem("memo"));
     const id = getQueryString();
@@ -52,8 +65,7 @@ function getQueryString() {
     const qs = window.location.search;
     const qs2 = new URLSearchParams(qs);
 
-    console.log(qs2.get("mode"), qs2.get("id"));
-    return qs2.get("mode");
+    return {id :qs2.get("id"), mode: qs2.get("mode")};
 }
 
-getQueryString();
+renderPage();
