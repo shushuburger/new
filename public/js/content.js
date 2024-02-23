@@ -25,9 +25,10 @@ function renderData(memo) {
     const createdAt = document.querySelector(".createdAt > span");
     const content = document.querySelector(".content");
 
+    const now = new Date(memo.createdAt);
     title.textContent = memo.title;
     description.textContent = memo.description;
-    createdAt.textContent = memo.createdAt;
+    createdAt.textContent = now.toLocaleDateString();
     content.textContent = memo.content;
 }
 
