@@ -39,7 +39,7 @@ app.get("/list/:id", function(request, response) {
         }
         response.status(200).json(result[0]);
     })
-})
+});
 
 app.post("/create", function(request, response) {
     conn.query("INSERT INTO list (title, description, content, createdAt) VALUES (?,?,?,now())", [request.body.title, request.body.description, request.body.content], function(err, result) {
@@ -49,7 +49,7 @@ app.post("/create", function(request, response) {
         }
         response.redirect("/");
     });
-})
+});
 
 app.put("/modify", function(request, response) {
     const data = request.body;
@@ -60,6 +60,10 @@ app.put("/modify", function(request, response) {
         }
         response.status(200).json({message:"수정에 성공했습니다.", status: "success"});
     });
+});
+
+app.delete("/delete", function(request, response) {
+    console.log(request.body);
 })
 
 app.listen(3000, function () {
