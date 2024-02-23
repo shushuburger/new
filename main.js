@@ -28,6 +28,17 @@ app.get("/lists", function(request, response) {
         }
         response.status(200).json(result);
     })
+});
+
+app.get("/list/:id", function(request, response) {
+    console.log(request.params);
+    conn.query("SELECT * FROM list WHERE id = ?", [request.params.id], function(err, result) {
+        if(err) {
+            console.log(err);
+            response.status(500).json({message:"데이터를 읽어오지 못했습니다.", status: "fail"});
+        }
+        console.log(result);
+    })
 })
 
 app.post("/create", function(request, response) {
