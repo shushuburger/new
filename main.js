@@ -21,7 +21,7 @@ app.get("/content", function(request, response) {
 });
 
 app.get("/lists", function(request, response) {
-    conn.query("SELECT id,title,description,content,createdAt FROM list", function(err, result) {
+    conn.query("SELECT id,title,description,content,createdAt FROM list ORDER BY id DESC", function(err, result) {
         if(err) {
             console.log(err);
             response.status(500).json({message:"데이터를 읽어오지 못했습니다.", status: "fail"});
