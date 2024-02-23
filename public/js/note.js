@@ -2,7 +2,6 @@ const createButton = document.querySelector(".create-btn");
 const modifyButton = document.querySelector(".modify-btn");
 
 modifyButton.addEventListener("click", function(event) {
-    // const data = getData();
     const qs = getQueryString();
     const ele = getElement();
 
@@ -10,20 +9,6 @@ modifyButton.addEventListener("click", function(event) {
     const description = ele.description.value;
     const content = ele.content.value;
     const id = qs.id;
-
-    // const saveData = JSON.parse(localStorage.getItem("memo"));
-
-    // for(let i = 0; i<saveData.length; i++){
-    //     if(saveData[i].id === Number(data.id)){
-    //         saveData[i].title = title;
-    //         saveData[i].description = description;
-    //         saveData[i].content = content;
-    //     }
-    // }
-
-    // localStorage.setItem("memo", JSON.stringify(saveData));
-    
-    // window.location.href = "/";
 
     fetch("http://localhost:3000/modify", {
         method: "put",
@@ -62,7 +47,6 @@ createButton.addEventListener("click", function (event) {
     };
 
     const saveData = localStorage.getItem("memo");
-    console.log(saveData);
 
     if(saveData === null) {
         const array = [];
@@ -99,9 +83,6 @@ function renderPage() {
         }).catch(function (error) {
             console.log(error);
         });
-
-        // const data = getData();
-        // renderMemo(data);
     }
 }
 

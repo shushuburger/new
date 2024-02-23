@@ -1,5 +1,4 @@
 function getData() {
-    // const saveData = JSON.parse(localStorage.getItem("memo"));
     fetch("http://localhost:3000/lists", {
         method:"get",
     }).then(function (result) {
@@ -49,16 +48,6 @@ function drawMemo(memo) {
     deleteBtn.className = "delete-btn";
 
     deleteBtn.addEventListener("click", function(event) {
-        // const saveData = JSON.parse(localStorage.getItem("memo"));
-
-        // for(let i = 0; i<saveData.length; i++) {
-        //     if(saveData[i].id === Number(memo.id)) {
-        //         saveData.splice(i, 1);
-        //         localStorage.setItem("memo", JSON.stringify(saveData));
-        //     }
-        // }
-
-        // getData();
         fetch("http://localhost:3000/delete", {
             method: "delete",
             headers: {

@@ -2,7 +2,6 @@ const express = require("express"); // 다운받은 패키지를 불러오는 �
 const conn = require("./core/database");
 const app = express();
 
-console.log(conn);
 app.use(express.static(__dirname + "/public"));
 
 app.use(express.json());
@@ -31,7 +30,6 @@ app.get("/lists", function(request, response) {
 });
 
 app.get("/list/:id", function(request, response) {
-    console.log(request.params);
     conn.query("SELECT * FROM list WHERE id = ?", [request.params.id], function(err, result) {
         if(err) {
             console.log(err);
@@ -63,7 +61,6 @@ app.put("/modify", function(request, response) {
 });
 
 app.delete("/delete", function(request, response) {
-    console.log(request.body);
     conn.query("DELETE FROM list WHERE id = ?", [request.body.id], function(err, result) {
         if(err){
             console.log(err);
