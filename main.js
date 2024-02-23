@@ -51,6 +51,10 @@ app.post("/create", function(request, response) {
     });
 })
 
+app.put("/modify", function(request, response) {
+    console.log(request.body);
+})
+
 app.listen(3000, function () {
     console.log("3000번 포트에서 서버가 실행중입니다.");
 });
