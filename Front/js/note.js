@@ -9,7 +9,13 @@ modifyButton.addEventListener("click", function(event) {
     const description = ele.description.value;
     const content = ele.content.value;
 
-    console.log(title, description, content);
+    const saveData = JSON.parse(localStorage.getItem("memo"));
+
+    for(let i = 0; i<saveData.length; i++){
+        if(saveData[i].id === Number(data.id)){
+            console.log(saveData[i]);
+        }
+    }
 })
 
 createButton.addEventListener("click", function (event) {
