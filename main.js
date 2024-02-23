@@ -11,7 +11,11 @@ app.get("/", function (request, response) { // post, get처럼 get 방식으로 
 
 app.get("/note", function(request, response) {
     response.sendFile(__dirname + "/public/view/note.html");
-})
+});
+
+app.get("/content", function(request, response) {
+    response.sendFile(__dirname + "/public/view/content.html");
+});
 
 app.listen(3000, function () {
     console.log("3000번 포트에서 서버가 실행중입니다.");
