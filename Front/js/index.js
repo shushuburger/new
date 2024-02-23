@@ -25,7 +25,7 @@ function drawMemo(memo) {
     const li = document.createElement("li");
 
     const a = document.createElement("a");
-    a.href = "";
+    a.href = "./view/content.html?id=" + memo.id;
 
     const h1 = document.createElement("h1");
     h1.className = "title";
