@@ -18,6 +18,10 @@ function getData() {
     const saveData = JSON.parse(localStorage.getItem("memo"));
     const memoWrapper = document.querySelector(".memo-container");
 
+    while(memoWrapper.firstChild) {
+        memoWrapper.removeChild(memoWrapper.firstChild);
+    }
+
     for(let i = 0; i< saveData.length; i++){
         const data = saveData[i];
         const list = drawMemo(data);
@@ -61,7 +65,7 @@ function drawMemo(memo) {
                 localStorage.setItem("memo", JSON.stringify(saveData));
             }
         }
-        
+
         getData();
     });
 
