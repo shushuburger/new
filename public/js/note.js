@@ -2,27 +2,48 @@ const createButton = document.querySelector(".create-btn");
 const modifyButton = document.querySelector(".modify-btn");
 
 modifyButton.addEventListener("click", function(event) {
-    const data = getData();
+    // const data = getData();
+    const qs = getQueryString();
     const ele = getElement();
 
     const title = ele.title.value;
     const description = ele.description.value;
     const content = ele.content.value;
+    const id = qs.id;
 
-    const saveData = JSON.parse(localStorage.getItem("memo"));
+    // const saveData = JSON.parse(localStorage.getItem("memo"));
 
-    for(let i = 0; i<saveData.length; i++){
-        if(saveData[i].id === Number(data.id)){
-            saveData[i].title = title;
-            saveData[i].description = description;
-            saveData[i].content = content;
-        }
-    }
+    // for(let i = 0; i<saveData.length; i++){
+    //     if(saveData[i].id === Number(data.id)){
+    //         saveData[i].title = title;
+    //         saveData[i].description = description;
+    //         saveData[i].content = content;
+    //     }
+    // }
 
-    localStorage.setItem("memo", JSON.stringify(saveData));
+    // localStorage.setItem("memo", JSON.stringify(saveData));
     
-    window.location.href = "/";
-})
+    // window.location.href = "/";
+
+    fetch("http://localhost:3000/modify", {
+        method: "put",
+        headers: {
+            "content-type":"application/json",
+        },
+        body:JSON.stringify({
+            title:title,
+            description: description,
+            content: content,
+            id: id,
+        }),
+    }).then(function(result) {
+        return result.json();
+    }).then(function(data){
+        console.log(data);
+    }).catch(function(error) {
+        console.log(error);
+    });
+});
 
 createButton.addEventListener("click", function (event) {
     const title = document.querySelector(".title");
