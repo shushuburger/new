@@ -1,5 +1,5 @@
 {/* <li>
-<div>
+<div class="list-header">
     <a href="./view/20230101.html">
         <h1 class="title">테스트1</h1>
     </a>
@@ -27,8 +27,10 @@ function getData() {
 }
 
 function drawMemo(memo) {
-    console.log(memo);
     const li = document.createElement("li");
+
+    const header = document.createElement("div");
+    header.className = "list-header";
 
     const a = document.createElement("a");
     a.href = "./view/content.html?id=" + memo.id;
@@ -37,7 +39,22 @@ function drawMemo(memo) {
     h1.className = "title";
     h1.textContent = memo.title;
 
+    const buttons = document.createElement("div");
+
+    const modifyBtn = document.createElement("span");
+    modifyBtn.textContent = "수정";
+    modifyBtn.className = "modify-btn";
+
+    const deleteBtn = document.createElement("span");
+    deleteBtn.textContent = "삭제";
+    deleteBtn.className = "delete-btn";
+
+    buttons.appendChild(modifyBtn);
+    buttons.appendChild(deleteBtn);
+
+    header.appendChild(a);
     a.appendChild(h1);
+    header.appendChild(buttons);
 
     const h2 = document.createElement("h2");
     h2.className = "description";
@@ -51,7 +68,7 @@ function drawMemo(memo) {
 
     div.appendChild(span);
 
-    li.appendChild(a);
+    li.appendChild(header);
     li.appendChild(h2);
     li.appendChild(div);
 
