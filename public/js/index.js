@@ -68,7 +68,7 @@ function drawMemo(memo) {
         }).then(function(result) {
             return result.json();
         }).then(function(data) {
-            console.log(data);
+            getData();
         }).catch(function(error){
             console.log(error);
         });
