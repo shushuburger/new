@@ -1,6 +1,17 @@
 const createButton = document.querySelector(".create-btn");
 const modifyButton = document.querySelector(".modify-btn");
 
+modifyButton.addEventListener("click", function(event) {
+    const data = getData();
+    const ele = getElement();
+
+    const title = ele.title.value;
+    const description = ele.description.value;
+    const content = ele.content.value;
+
+    console.log(title, description, content);
+})
+
 createButton.addEventListener("click", function (event) {
     const title = document.querySelector(".title");
     const description = document.querySelector(".description");
@@ -44,8 +55,17 @@ function renderPage() {
         createButton.style.display = "none";
         modifyButton.style.display = "block";
 
-        getData();
+        const data = getData();
+        renderMemo(data);
     }
+}
+
+function getElement() {
+    const title = document.querySelector(".title");
+    const description = document.querySelector(".description");
+    const content = document.querySelector(".content");
+
+    return {title:title, description:description, content:content};
 }
 
 function getData() {
@@ -59,6 +79,10 @@ function getData() {
         }
     }
 
+    return data;
+}
+
+function renderMemo(data) {
     const title = document.querySelector(".title");
     const description = document.querySelector(".description");
     const content = document.querySelector(".content");
