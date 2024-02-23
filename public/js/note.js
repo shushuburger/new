@@ -67,7 +67,7 @@ function renderPage() {
         createButton.style.display = "none";
         modifyButton.style.display = "block";
 
-        fetch("http://localhost:3000/list", {
+        fetch("http://localhost:3000/list/" + qs.id, {
             method:"get",
         }).then(function(result) {
             return result.json();
