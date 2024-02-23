@@ -2,8 +2,11 @@ const express = require("express"); // 다운받은 패키지를 불러오는 �
 
 const app = express();
 
+console.log(__dirname);
+app.use(express.static(__dirname + "/public"));
+
 app.get("/", function (request, response) { // post, get처럼 get 방식으로 받는 걸 의미
-    response.send("서버 생성");
+    response.sendFile(__dirname + "/public/index.html");
 });
 
 app.listen(3000, function () {
