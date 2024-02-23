@@ -1,19 +1,3 @@
-{/* <li>
-<div class="list-header">
-    <a href="./view/20230101.html">
-        <h1 class="title">테스트1</h1>
-    </a>
-    <div>
-        <span class="modify-btn">수정</span>
-        <span class="delete-btn">삭제</span>
-    </div>
-</div>
-<h2 class="description">테스트2</h2>
-<div class="createdAt">
-    <span>2023.01.01</span>
-</div>
-</li> */}
-
 function getData() {
     const saveData = JSON.parse(localStorage.getItem("memo"));
     const memoWrapper = document.querySelector(".memo-container");
