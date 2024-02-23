@@ -33,6 +33,21 @@ createButton.addEventListener("click", function (event) {
     }
 });
 
+function getData() {
+    const saveData = JSON.parse(localStorage.getItem("memo"));
+    const id = getQueryString();
+
+    let data;
+    for(let i = 0; i<saveData.length; i++) {
+        if(saveData[i].id === Number(id)) {
+            data = saveData[i];
+        }
+    }
+
+    renderData(data);
+    console.log(data);
+}
+
 function getQueryString() {
     const qs = window.location.search;
     const qs2 = new URLSearchParams(qs);

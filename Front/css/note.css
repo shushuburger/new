@@ -91,7 +91,7 @@ header{
 .cancel-btn{
 }
 
-.create-btn{
+.create-btn,.modify-btn{
     background-color: #2725D2 !important;
     color: white;
 }
