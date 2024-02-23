@@ -52,7 +52,14 @@ app.post("/create", function(request, response) {
 })
 
 app.put("/modify", function(request, response) {
-    console.log(request.body);
+    const data = request.body;
+    conn.query("UPDATE list SET title=?,description=?,content=? WHERE id = ?",[data.title, data.description, data.content, data.id], function(err, result){
+        if(err){
+            console.log(err);
+            response.status(500).json({message:"수정에 실패했습니다", status: "fail"});
+        }
+        response.status(200).json({message:"수정에 성공했습니다.", status: "success"});
+    });
 })
 
 app.listen(3000, function () {
