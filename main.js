@@ -1,8 +1,8 @@
 const express = require("express"); // 다운받은 패키지를 불러오는 작업
-
+const conn = require("./core/database");
 const app = express();
 
-console.log(__dirname);
+console.log(conn);
 app.use(express.static(__dirname + "/public"));
 
 app.use(express.json());
