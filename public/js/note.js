@@ -39,7 +39,9 @@ modifyButton.addEventListener("click", function(event) {
     }).then(function(result) {
         return result.json();
     }).then(function(data){
-        console.log(data);
+        if(data.status === "success") {
+            window.location.href = "/";
+        }
     }).catch(function(error) {
         console.log(error);
     });
