@@ -45,6 +45,10 @@ function drawMemo(memo) {
     modifyBtn.textContent = "수정";
     modifyBtn.className = "modify-btn";
 
+    modifyBtn.addEventListener("click", function(event) {
+        window.location.href = "./view/note.html";
+    })
+
     const deleteBtn = document.createElement("span");
     deleteBtn.textContent = "삭제";
     deleteBtn.className = "delete-btn";
