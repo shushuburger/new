@@ -22,11 +22,13 @@ createButton.addEventListener("click", function (event) {
     if(saveData === null) {
         const array = [];
         array.push(saveValue);
+        saveValue.id = 1;
         localStorage.setItem("memo", JSON.stringify(array));
     }
     else {
         const transform = JSON.parse(saveData);
         transform.push(saveValue);
+        saveValue.id = transform.length + 1;
         localStorage.setItem("memo", JSON.stringify(transform));
     }
 })
