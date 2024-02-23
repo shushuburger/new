@@ -29,8 +29,6 @@ createButton.addEventListener("click", function (event) {
     const description = document.querySelector(".description");
     const content = document.querySelector(".content");
 
-    console.log(title.value, description.value, content.value);
-
     const now = new Date();
 
     const saveValue = {
@@ -55,6 +53,8 @@ createButton.addEventListener("click", function (event) {
         transform.push(saveValue);
         localStorage.setItem("memo", JSON.stringify(transform));
     }
+
+    window.location.href = "../index.html";
 });
 
 function renderPage() {

@@ -61,8 +61,8 @@ function drawMemo(memo) {
                 localStorage.setItem("memo", JSON.stringify(saveData));
             }
         }
-
-        console.log(saveData);
+        
+        getData();
     });
 
     buttons.appendChild(modifyBtn);
