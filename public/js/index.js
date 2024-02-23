@@ -1,5 +1,15 @@
 function getData() {
-    const saveData = JSON.parse(localStorage.getItem("memo"));
+    // const saveData = JSON.parse(localStorage.getItem("memo"));
+    fetch("http://localhost:3000/lists", {
+        method:"get",
+    }).then(function (result) {
+        return result.json();
+    }).then(function (data) {
+        console.log(data);
+    }).catch(function(error) {
+        console.log(error);
+    });
+
     const memoWrapper = document.querySelector(".memo-container");
 
     while(memoWrapper.firstChild) {
