@@ -13,9 +13,13 @@ modifyButton.addEventListener("click", function(event) {
 
     for(let i = 0; i<saveData.length; i++){
         if(saveData[i].id === Number(data.id)){
-            console.log(saveData[i]);
+            saveData[i].title = title;
+            saveData[i].description = description;
+            saveData[i].content = content;
         }
     }
+
+    console.log(saveData);
 })
 
 createButton.addEventListener("click", function (event) {
