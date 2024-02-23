@@ -20,6 +20,10 @@ app.get("/content", function(request, response) {
     response.sendFile(__dirname + "/public/view/content.html");
 });
 
+app.get("/lists", function(request, response) {
+    console.log(123);
+})
+
 app.post("/create", function(request, response) {
     conn.query("INSERT INTO list (title, description, content, createdAt) VALUES (?,?,?,now())", [request.body.title, request.body.description, request.body.content], function(err, result) {
         if(err) {
