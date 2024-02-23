@@ -44,8 +44,20 @@ ul > li{
     border-bottom: 1px solid gray;
 }
 
-ul > li > a > h1{
-    font-size: 30px;
+ul > li > .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul > li > .list-header > a > h1{
+    font-size: 26px;
+}
+
+ul > li > .list-header > div > span {
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 7px;
 }
 
 .description{
