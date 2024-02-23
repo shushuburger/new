@@ -43,22 +43,29 @@ function renderPage() {
     } else if(qs.mode === "modify") {
         createButton.style.display = "none";
         modifyButton.style.display = "block";
+
+        getData();
     }
 }
 
 function getData() {
     const saveData = JSON.parse(localStorage.getItem("memo"));
-    const id = getQueryString();
+    const qs = getQueryString();
 
     let data;
     for(let i = 0; i<saveData.length; i++) {
-        if(saveData[i].id === Number(id)) {
+        if(saveData[i].id === Number(qs.id)) {
             data = saveData[i];
         }
     }
 
-    renderData(data);
-    console.log(data);
+    const title = document.querySelector(".title");
+    const description = document.querySelector(".description");
+    const content = document.querySelector(".content");
+
+    title.value = data.title;
+    description.value = data.description;
+    content.textContent = data.content;
 }
 
 function getQueryString() {
