@@ -22,6 +22,13 @@ app.get("/content", function(request, response) {
 
 app.post("/create", function(request, response) {
     console.log(request.body);
+    conn.query("INSERT INTO list (title, description, content, createdAt) VALUES (?,?,?,now())", [request.body.title, request.body.description, request.body.content], function(err, result) {
+        if(err) {
+            console.log(err);
+            response.status(500);
+        }
+        console.log(result);
+    });
 })
 
 app.listen(3000, function () {
