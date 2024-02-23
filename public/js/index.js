@@ -76,7 +76,8 @@ function drawMemo(memo) {
     div.className = "createdAt";
 
     const span = document.createElement("span");
-    span.textContent = memo.createdAt;
+    const now = new Date(memo.createdAt);
+    span.textContent = now.toLocaleDateString();
 
     div.appendChild(span);
 
