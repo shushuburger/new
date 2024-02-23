@@ -67,8 +67,18 @@ function renderPage() {
         createButton.style.display = "none";
         modifyButton.style.display = "block";
 
-        const data = getData();
-        renderMemo(data);
+        fetch("http://localhost:3000/list", {
+            method:"get",
+        }).then(function(result) {
+            return result.json();
+        }).then(function(data) {
+            console.log(data);
+        }).catch(function (error) {
+            console.log(error);
+        });
+
+        // const data = getData();
+        // renderMemo(data);
     }
 }
 
