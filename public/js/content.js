@@ -1,16 +1,15 @@
 function getData() {
-    const saveData = JSON.parse(localStorage.getItem("memo"));
     const id = getQueryString();
 
-    let data;
-    for(let i = 0; i<saveData.length; i++) {
-        if(saveData[i].id === Number(id)) {
-            data = saveData[i];
-        }
-    }
-
-    renderData(data);
-    console.log(data);
+    fetch("http://localhost:3000/list/" + id, {
+        method:"get",
+    }).then(function(result) {
+        return result.json();
+    }).then(function(data) {
+        renderData(data);
+    }).catch(function (error) {
+        console.log(error);
+    });
 }
 
 function getQueryString() {
