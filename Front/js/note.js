@@ -19,7 +19,9 @@ modifyButton.addEventListener("click", function(event) {
         }
     }
 
-    console.log(saveData);
+    localStorage.setItem("memo", JSON.stringify(saveData));
+    
+    window.location.href = "../index.html";
 })
 
 createButton.addEventListener("click", function (event) {
