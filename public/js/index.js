@@ -36,7 +36,7 @@ function drawMemo(memo) {
     header.className = "list-header";
 
     const a = document.createElement("a");
-    a.href = "./view/content.html?id=" + memo.id;
+    a.href = "/content?id=" + memo.id;
 
     const h1 = document.createElement("h1");
     h1.className = "title";
@@ -49,7 +49,7 @@ function drawMemo(memo) {
     modifyBtn.className = "modify-btn";
 
     modifyBtn.addEventListener("click", function(event) {
-        window.location.href = "./view/note.html?mode=modify&id=" +memo.id;
+        window.location.href = "/note?mode=modify&id=" +memo.id;
     })
 
     const deleteBtn = document.createElement("span");
