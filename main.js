@@ -21,7 +21,13 @@ app.get("/content", function(request, response) {
 });
 
 app.get("/lists", function(request, response) {
-    console.log(123);
+    conn.query("SELECT id,title,description,content,createdAt FROM list", function(err, result) {
+        if(err) {
+            console.log(err);
+            response.status(500).json({message:"데이터를 읽어오지 못했습니다.", status: "fail"});
+        }
+        response.status(200).json(result);
+    })
 })
 
 app.post("/create", function(request, response) {
