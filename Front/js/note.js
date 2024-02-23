@@ -31,4 +31,14 @@ createButton.addEventListener("click", function (event) {
         transform.push(saveValue);
         localStorage.setItem("memo", JSON.stringify(transform));
     }
-})
+});
+
+function getQueryString() {
+    const qs = window.location.search;
+    const qs2 = new URLSearchParams(qs);
+
+    console.log(qs2.get("mode"));
+    return qs2.get("mode");
+}
+
+getQueryString();
