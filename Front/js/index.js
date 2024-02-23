@@ -17,7 +17,6 @@
 function getData() {
     const saveData = JSON.parse(localStorage.getItem("memo"));
     const memoWrapper = document.querySelector(".memo-container");
-    console.log(memoWrapper);
 
     for(let i = 0; i< saveData.length; i++){
         const data = saveData[i];
@@ -52,6 +51,19 @@ function drawMemo(memo) {
     const deleteBtn = document.createElement("span");
     deleteBtn.textContent = "삭제";
     deleteBtn.className = "delete-btn";
+
+    deleteBtn.addEventListener("click", function(event) {
+        const saveData = JSON.parse(localStorage.getItem("memo"));
+
+        for(let i = 0; i<saveData.length; i++) {
+            if(saveData[i].id === Number(memo.id)) {
+                saveData.splice(i, 1);
+                localStorage.setItem("memo", JSON.stringify(saveData));
+            }
+        }
+
+        console.log(saveData);
+    });
 
     buttons.appendChild(modifyBtn);
     buttons.appendChild(deleteBtn);
