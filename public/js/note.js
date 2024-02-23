@@ -21,7 +21,7 @@ modifyButton.addEventListener("click", function(event) {
 
     localStorage.setItem("memo", JSON.stringify(saveData));
     
-    window.location.href = "../index.html";
+    window.location.href = "/";
 })
 
 createButton.addEventListener("click", function (event) {
@@ -54,7 +54,7 @@ createButton.addEventListener("click", function (event) {
         localStorage.setItem("memo", JSON.stringify(transform));
     }
 
-    window.location.href = "../index.html";
+    window.location.href = "/";
 });
 
 function renderPage() {
