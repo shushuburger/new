@@ -16,8 +16,17 @@ createButton.addEventListener("click", function (event) {
         createdAt: now.toLocaleDateString(),
     };
 
-    const array = [];
-    array.push(saveValue);
+    const saveData = localStorage.getItem("memo");
+    console.log(saveData);
 
-    localStorage.setItem("memo", JSON.stringify(array));
+    if(saveData === null) {
+        const array = [];
+        array.push(saveValue);
+        localStorage.setItem("memo", JSON.stringify(array));
+    }
+    else {
+        const transform = JSON.parse(saveData);
+        transform.push(saveValue);
+        localStorage.setItem("memo", JSON.stringify(transform));
+    }
 })
