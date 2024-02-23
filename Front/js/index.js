@@ -14,12 +14,14 @@ function getData() {
     console.log(memoWrapper);
 
     for(let i = 0; i< saveData.length; i++){
-        const list = drawMemo();
+        const data = saveData[i];
+        const list = drawMemo(data);
         memoWrapper.appendChild(list);
     }
 }
 
-function drawMemo() {
+function drawMemo(memo) {
+    console.log(memo);
     const li = document.createElement("li");
 
     const a = document.createElement("a");
@@ -27,19 +29,19 @@ function drawMemo() {
 
     const h1 = document.createElement("h1");
     h1.className = "title";
-    h1.textContent = "테스트";
+    h1.textContent = memo.title;
 
     a.appendChild(h1);
 
     const h2 = document.createElement("h2");
     h2.className = "description";
-    h2.textContent = "테스트2";
+    h2.textContent = memo.description;
 
     const div = document.createElement("div");
     div.className = "createdAt";
 
     const span = document.createElement("span");
-    span.textContent = "2023.01.01";
+    span.textContent = memo.createdAt;
 
     div.appendChild(span);
 
