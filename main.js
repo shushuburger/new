@@ -37,7 +37,7 @@ app.get("/list/:id", function(request, response) {
             console.log(err);
             response.status(500).json({message:"데이터를 읽어오지 못했습니다.", status: "fail"});
         }
-        console.log(result);
+        response.status(200).json(result[0]);
     })
 })
 

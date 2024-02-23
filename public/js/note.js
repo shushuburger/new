@@ -72,7 +72,7 @@ function renderPage() {
         }).then(function(result) {
             return result.json();
         }).then(function(data) {
-            console.log(data);
+            renderMemo(data);
         }).catch(function (error) {
             console.log(error);
         });
