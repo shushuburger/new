@@ -27,8 +27,8 @@ createButton.addEventListener("click", function (event) {
     }
     else {
         const transform = JSON.parse(saveData);
-        transform.push(saveValue);
         saveValue.id = transform.length + 1;
+        transform.push(saveValue);
         localStorage.setItem("memo", JSON.stringify(transform));
     }
 })
