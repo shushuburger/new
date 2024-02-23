@@ -37,7 +37,7 @@ function getQueryString() {
     const qs = window.location.search;
     const qs2 = new URLSearchParams(qs);
 
-    console.log(qs2.get("mode"));
+    console.log(qs2.get("mode"), qs2.get("id"));
     return qs2.get("mode");
 }
 
