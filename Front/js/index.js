@@ -46,7 +46,7 @@ function drawMemo(memo) {
     modifyBtn.className = "modify-btn";
 
     modifyBtn.addEventListener("click", function(event) {
-        window.location.href = "./view/note.html";
+        window.location.href = "./view/note.html?mode=modify";
     })
 
     const deleteBtn = document.createElement("span");
